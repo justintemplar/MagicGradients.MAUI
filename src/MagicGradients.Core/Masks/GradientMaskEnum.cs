@@ -1,6 +1,6 @@
 ﻿namespace MagicGradients.Masks
 {
-    public enum Stretch
+    public enum GradientStretch
     {
         None,
         AspectFit,

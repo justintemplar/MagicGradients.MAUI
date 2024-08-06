@@ -24,8 +24,8 @@ namespace MagicGradients
             Type = type;
         }
 
-        public static Offset Prop(double value) => new(value, OffsetType.Proportional);
-        public static Offset Abs(double value) => new(value, OffsetType.Absolute);
+        public static Offset Proportional(double value) => new(value, OffsetType.Proportional);
+        public static Offset Absolute(double value) => new(value, OffsetType.Absolute);
 
         public bool Equals(Offset other)
         {

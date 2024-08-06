@@ -22,7 +22,7 @@ Install into shared project, no additional setup required.
 
 To start using `Magic Gradients` in XAML import namespace:
 ``` xml
-<ContentPage xmlns:magic="http://magic.com/schemas/gradients" />
+<ContentPage xmlns:magic="clr-namespace:MagicGradients.Maui;assembly=MagicGradients.Maui" />
 ```
 
 ## Drawing gradient

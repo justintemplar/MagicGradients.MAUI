@@ -139,8 +139,8 @@ namespace MagicGradients.Parser.TokenDefinitions
                     }
                     
                     var center = new Position(
-                        isPosX ? posX : Offset.Prop((direction.X + 1) / 2),
-                        isPosY ? posY : Offset.Prop((direction.Y + 1) / 2));
+                        isPosX ? posX : Offset.Proportional((direction.X + 1) / 2),
+                        isPosY ? posY : Offset.Proportional((direction.Y + 1) / 2));
 
                     return (true, center);
                 }

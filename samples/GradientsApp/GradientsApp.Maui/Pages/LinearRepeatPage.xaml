@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:magic="http://magic.com/schemas/gradients"
+             xmlns:viewModels="clr-namespace:GradientsApp.Maui.ViewModels"
+             x:DataType="viewModels:LinearViewModel"
+             x:Class="GradientsApp.Maui.Pages.LinearRepeatPage"
+             Title="{Binding Title, Mode=OneTime}">
+    <ScrollView>
+        <StackLayout Spacing="5">
+
+            <magic:GradientView HeightRequest="160">
+                <magic:LinearGradient Angle="100" IsRepeating="True">
+                    <magic:GradientStop Color="Orange" />
+                    <magic:GradientStop Color="Gray" Offset="48" />
+                </magic:LinearGradient>
+            </magic:GradientView>
+            
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

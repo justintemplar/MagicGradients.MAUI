@@ -64,7 +64,7 @@ namespace MagicGradients.Platform
 
             if (mask != null)
             {
-                mask.Stretch = (Stretch)typedArray.GetInt(Resource.Styleable.GradientView_maskStretch, 0);
+                mask.Stretch = (GradientStretch)typedArray.GetInt(Resource.Styleable.GradientView_maskStretch, 0);
                 view.Mask = mask;
             }
         }

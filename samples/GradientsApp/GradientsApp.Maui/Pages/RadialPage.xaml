@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:magic="http://magic.com/schemas/gradients"
+             xmlns:viewModels="clr-namespace:GradientsApp.Maui.ViewModels"
+             x:Class="GradientsApp.Maui.Pages.RadialPage"
+             x:DataType="viewModels:HomeViewModel"
+             Title="Radial Gradients">
+    <ScrollView>
+        <StackLayout Spacing="5">
+            <magic:GradientView HeightRequest="160">
+                <magic:RadialGradient>
+                    <magic:GradientStop Color="Red" />
+                    <magic:GradientStop Color="Green" />
+                    <magic:GradientStop Color="Blue" />
+                </magic:RadialGradient>
+            </magic:GradientView>
+            <magic:GradientView HeightRequest="160">
+                <magic:RadialGradient IsRepeating="True">
+                    <magic:GradientStop Color="Yellow" Offset="0.25*" />
+                    <magic:GradientStop Color="Blue" Offset="0.5*" />
+                </magic:RadialGradient>
+            </magic:GradientView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,1 @@
+[assembly: XmlnsDefinition("http://magic.com/schemas/gradients", "MagicGradients.Maui.Skia")]

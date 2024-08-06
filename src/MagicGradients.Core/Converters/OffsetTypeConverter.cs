@@ -14,7 +14,9 @@ namespace MagicGradients.Converters
 
         public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
         {
-            return Offset.Parse(value?.ToString(), OffsetType.Proportional);
+            return ReadDimension(value?.ToString());
+
+            //return Offset.Parse(value?.ToString(), OffsetType.Proportional);
         }
 
         public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
@@ -23,6 +25,20 @@ namespace MagicGradients.Converters
                 return offset.ToStringWithUnit();
 
             throw new NotSupportedException();
+        }
+
+        private Offset ReadDimension(string strValue)
+        {
+            if (string.Compare(strValue, "*", StringComparison.OrdinalIgnoreCase) == 0)
+                return Offset.Proportional(1);
+
+            if (strValue.EndsWith("*", StringComparison.Ordinal) && double.TryParse(strValue.Substring(0, strValue.Length - 1), NumberStyles.Number, CultureInfo.InvariantCulture, out var length))
+                return Offset.Proportional(length);
+
+            if (double.TryParse(strValue, NumberStyles.Number, CultureInfo.InvariantCulture, out length))
+                return Offset.Absolute(length);
+
+            return Offset.Empty;
         }
     }
 }

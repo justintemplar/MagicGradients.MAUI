@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:magic="http://magic.com/schemas/gradients"
+             xmlns:viewModels="clr-namespace:GradientsApp.Maui.ViewModels"
+             x:DataType="viewModels:LinearViewModel"
+             x:Class="GradientsApp.Maui.Pages.LinearPage"
+             Title="{Binding Title, Mode=OneTime}">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Resources/Styles/Styles.css" />
+    </ContentPage.Resources>
+    <ScrollView>
+        <StackLayout Spacing="5">
+            <!-- Css Gradient Source  -->
+            <magic:GradientView HeightRequest="160">
+                <magic:CssGradient>
+                    <![CDATA[
+                        linear-gradient(242deg, red, green, orange)
+                    ]]>
+                </magic:CssGradient>
+            </magic:GradientView>
+            <magic:GradientView HeightRequest="160">
+                <magic:CssGradient Stylesheet="{Binding CssGradient}" />
+            </magic:GradientView>
+            <!-- Repeating -->
+            <magic:GradientView HeightRequest="160">
+                <magic:LinearGradient Angle="10" IsRepeating="True">
+                    <magic:GradientStop Color="Gray" Offset="0" />
+                    <magic:GradientStop Color="Gray" Offset="45" />
+                    <magic:GradientStop Color="Orange" Offset="45" />
+                    <magic:GradientStop Color="Orange" Offset="95" />
+                </magic:LinearGradient>
+            </magic:GradientView>
+            <magic:GradientView HeightRequest="160">
+                <magic:LinearGradient Angle="10" IsRepeating="True">
+                    <magic:GradientStop Color="Gray" Offset="0*" />
+                    <magic:GradientStop Color="Gray" Offset="0.1*" />
+                    <magic:GradientStop Color="Orange" Offset="0.1*" />
+                    <magic:GradientStop Color="Orange" Offset="0.2*" />
+                    <magic:GradientStop Color="Gray" Offset="0.2*" />
+                    <magic:GradientStop Color="Gray" Offset="0.3*" />
+                    <magic:GradientStop Color="Orange" Offset="0.3*" />
+                    <magic:GradientStop Color="Orange" Offset="0.4*" />
+                    <magic:GradientStop Color="Gray" Offset="0.4*" />
+                    <magic:GradientStop Color="Gray" Offset="0.5*" />
+                    <magic:GradientStop Color="Orange" Offset="0.5*" />
+                    <magic:GradientStop Color="Orange" Offset="0.6*" />
+                    <magic:GradientStop Color="Gray" Offset="0.6*" />
+                    <magic:GradientStop Color="Gray" Offset="0.7*" />
+                    <magic:GradientStop Color="Orange" Offset="0.7*" />
+                    <magic:GradientStop Color="Orange" Offset="0.8*" />
+                    <magic:GradientStop Color="Gray" Offset="0.8*" />
+                    <magic:GradientStop Color="Gray" Offset="0.9*" />
+                    <magic:GradientStop Color="Orange" Offset="0.9*" />
+                </magic:LinearGradient>
+            </magic:GradientView>
+            <Frame BorderColor="LightGray"
+                   HasShadow="True"
+                   CornerRadius="40"
+                   HeightRequest="120"
+                   WidthRequest="120">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,1">
+                        <GradientStop Color="Yellow" Offset="0.0" />
+                        <GradientStop Color="Yellow" Offset="0.25" />
+                        <GradientStop Color="Green" Offset="0.25" />
+                        <GradientStop Color="Green" Offset="0.5" />
+                        <GradientStop Color="Yellow" Offset="0.5" />
+                        <GradientStop Color="Yellow" Offset="0.75" />
+                        <GradientStop Color="Green" Offset="0.75" />
+                        <GradientStop Color="Green" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Frame.Background>
+            </Frame>
+
+            <magic:GradientView HeightRequest="160">
+                <magic:LinearGradient Angle="45">
+                    <magic:GradientStop Color="Blue" />
+                    <magic:GradientStop Color="Green" Offset="0.5*" />
+                </magic:LinearGradient>
+            </magic:GradientView>
+            <magic:GradientView HeightRequest="160" WidthRequest="40" GradientRepeat="RepeatY" GradientSize="1*,55">
+                <magic:LinearGradient Angle="330">
+                    <magic:GradientStop Color="Orange" Offset="0*" />
+                    <magic:GradientStop Color="Orange" Offset="0.30*" />
+                    <magic:GradientStop Color="Gray" Offset="0.35*" />
+                    <magic:GradientStop Color="Gray" Offset="0.65*" />
+                    <magic:GradientStop Color="Orange" Offset="0.70*" />
+                    <magic:GradientStop Color="Orange" Offset="1*" />
+                </magic:LinearGradient>
+            </magic:GradientView>
+            <!-- GradientSize -->
+            <magic:GradientView HeightRequest="160" GradientSize="40">
+                <magic:LinearGradient Angle="45">
+                    <magic:GradientStop Color="Blue" />
+                    <magic:GradientStop Color="Yellow" />
+                </magic:LinearGradient>
+            </magic:GradientView>
+            <!-- CSS -->
+            <magic:GradientView HeightRequest="160" StyleClass="RainbowGradient" />
+            <magic:GradientView HeightRequest="160" StyleClass="AngularGradient" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -32,8 +32,8 @@ namespace MagicGradients
             Height = new Offset(height, type);
         }
 
-        public static Dimensions Prop(double width, double height) => new(Offset.Prop(width), Offset.Prop(height));
-        public static Dimensions Abs(double width, double height) => new(Offset.Abs(width), Offset.Abs(height));
+        public static Dimensions Prop(double width, double height) => new(Offset.Proportional(width), Offset.Proportional(height));
+        public static Dimensions Abs(double width, double height) => new(Offset.Absolute(width), Offset.Absolute(height));
 
         public bool Equals(Dimensions other)
         {

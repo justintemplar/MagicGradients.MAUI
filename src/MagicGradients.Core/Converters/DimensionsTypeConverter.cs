@@ -23,14 +23,12 @@ namespace MagicGradients.Converters
 
             if (dim.Length == 1)
             {
-                return new Dimensions(Offset.Parse(dim[0], OffsetType.Absolute));
+                return new Dimensions(ReadDimension(dim[0]));
             }
 
             if (dim.Length == 2)
             {
-                return new Dimensions(
-                    Offset.Parse(dim[0], OffsetType.Absolute),
-                    Offset.Parse(dim[1], OffsetType.Absolute));
+                return new Dimensions(ReadDimension(dim[0]), ReadDimension(dim[1]));
             }
 
             throw new InvalidOperationException($"Cannot convert \"{value}\" into {typeof(Dimensions)}");
@@ -42,6 +40,20 @@ namespace MagicGradients.Converters
                 return $"{dim.Width.ToStringWithUnit()} {dim.Height.ToStringWithUnit()}";
 
             throw new NotSupportedException();
+        }
+
+        private Offset ReadDimension(string strValue)
+        {
+            if (string.Compare(strValue, "*", StringComparison.OrdinalIgnoreCase) == 0)
+                return Offset.Proportional(1);
+
+            if (strValue.EndsWith("*", StringComparison.Ordinal) && double.TryParse(strValue.Substring(0, strValue.Length - 1), NumberStyles.Number, CultureInfo.InvariantCulture, out var length))
+                return Offset.Proportional(length);
+
+            if (double.TryParse(strValue, NumberStyles.Number, CultureInfo.InvariantCulture, out length))
+                return Offset.Absolute(length);
+
+            return Offset.Empty;
         }
     }
 }

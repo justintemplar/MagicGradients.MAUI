@@ -10,7 +10,7 @@ namespace MagicGradients.Markup
             return mask;
         }
 
-        public static T Stretch<T>(this T mask, Stretch stretch) where T : GradientMask
+        public static T Stretch<T>(this T mask, GradientStretch stretch) where T : GradientMask
         {
             mask.Stretch = stretch;
             return mask;

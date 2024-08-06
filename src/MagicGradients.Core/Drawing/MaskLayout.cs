@@ -14,7 +14,7 @@ namespace MagicGradients.Drawing
         {
             BeginLayout(mask, bounds, context);
 
-            if (mask.Stretch == Stretch.None)
+            if (mask.Stretch == GradientStretch.None)
             {
                 var scaleX = context.RenderRect.Width / context.CanvasRect.Width;
                 var scaleY = context.RenderRect.Height / context.CanvasRect.Height;
@@ -32,19 +32,19 @@ namespace MagicGradients.Drawing
                 var scaleX = context.RenderRect.Width / bounds.Width;
                 var scaleY = context.RenderRect.Height / bounds.Height;
 
-                if (mask.Stretch == Stretch.AspectFit)
+                if (mask.Stretch == GradientStretch.AspectFit)
                 {
                     var scale = Math.Min(scaleX, scaleY);
                     Scale(context.Canvas, scale, scale);
                 }
 
-                if (mask.Stretch == Stretch.AspectFill)
+                if (mask.Stretch == GradientStretch.AspectFill)
                 {
                     var scale = Math.Max(scaleX, scaleY);
                     Scale(context.Canvas, scale, scale);
                 }
 
-                if (mask.Stretch == Stretch.Fill)
+                if (mask.Stretch == GradientStretch.Fill)
                     Scale(context.Canvas, scaleX, scaleY);
             }
 

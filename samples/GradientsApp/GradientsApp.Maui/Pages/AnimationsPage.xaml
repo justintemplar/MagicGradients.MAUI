@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:magic="http://magic.com/schemas/gradients"
+             xmlns:viewmodel="clr-namespace:GradientsApp.Maui.ViewModels"
+             x:Class="GradientsApp.Maui.Pages.AnimationsPage"
+             x:DataType="viewmodel:HomeViewModel"
+             Title="Animations">
+    <ScrollView>
+        <StackLayout Spacing="5">
+            <magic:GradientView HeightRequest="160">
+                <magic:GradientView.Behaviors>
+                    <magic:AnimationBehavior>
+                        <magic:ColorAnimation x:Name="ColorAnimation"
+                                              Target="{x:Reference AnimColor}" 
+                                              TargetProperty="magic:GradientStop.Color" 
+                                              From="#C850C0" To="#1FDD15" 
+                                              Duration="3000"
+                                              RepeatBehavior="Forever" 
+                                              AutoReverse="True" />
+                    </magic:AnimationBehavior>
+                </magic:GradientView.Behaviors>
+                <magic:LinearGradient Angle="45">
+                    <magic:GradientStop Color="#00DBDE" />
+                    <magic:GradientStop Color="#FC00FF" x:Name="AnimColor" />
+                </magic:LinearGradient>
+            </magic:GradientView>
+            
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -63,5 +63,11 @@ namespace MagicGradients.Markup
             control.GradientRepeat = repeat;
             return control;
         }
+
+        public static T Height<T>(this T control, double height) where T : Microsoft.Maui.Controls.View
+        {
+            control.HeightRequest = height;
+            return control;
+        }
     }
 }

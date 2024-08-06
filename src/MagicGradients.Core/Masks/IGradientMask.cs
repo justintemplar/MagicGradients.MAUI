@@ -5,7 +5,7 @@ namespace MagicGradients.Masks
     public interface IGradientMask
     {
         ClipMode ClipMode { get; }
-        Stretch Stretch { get; }
+        GradientStretch Stretch { get; }
         bool IsActive { get; }
     }
 
